@@ -403,40 +403,88 @@ console.table(searchAndDivide("Lord of"));
 */
 
 function removeIndex(index){
-  return movies.filter((val, i) => index != i);
+  return movies.filter((val, i) => index -1 != i);
 }
 console.log("remove at index");
 console.table(removeIndex(4));
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
+window.onload = () => {
+  container();
+  td();
+  printTD();
+  red();
+  newElement();
+  setTimeout(clearList, 1000);
+  addClass();
+};
+
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
+
+function container(){
+  let element = document.getElementById("container");
+  console.log(element.innerHTML);
+}
+
 
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
 
+function td(){
+  let elements = document.querySelectorAll("td");
+  elements.forEach(element => console.log(element.innerHTML));
+}
+
+
+
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
+
+function printTD(){
+  let elements = document.querySelectorAll("td");
+  for(var i = 0; i < elements.length; i++){
+    console.log(elements[i].innerHTML)
+  }
+}
 
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
 
+function red(){
+  document.querySelectorAll("a").forEach(element => element.style.backgroundColor = "red");
+}
+
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+
+function newElement(){
+  let item = document.createElement("li");
+  item.innerText = "nuovo elemento lista";
+  document.getElementById("myList").appendChild(item);
+}
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
+function clearList(){
+  document.getElementById("myList").innerHTML = "";
+}
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+
+function addClass(){
+  document.querySelectorAll("tr").forEach(element => element.classList = ["test"]);
+}
 
 // [EXTRA] JS Avanzato
 
@@ -452,6 +500,20 @@ console.table(removeIndex(4));
 
 */
 
+function halfTree(num){
+  const count = num;
+  while(num > 0){
+    let stringa = "*";
+    for(var i = 0; i < count - num; i++){
+      stringa += "*";
+    }
+  console.log(stringa);
+    num--;
+  }
+}
+
+halfTree(4);
+
 /* ESERCIZIO 28
   Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
 
@@ -464,9 +526,37 @@ console.table(removeIndex(4));
 
 */
 
+function tree(num){
+  const count = num;
+  while(num > 0){
+    let stringa = "*";
+    for(var i = 0; i < num; i++){
+      stringa = " " + stringa;
+    }
+    for(var i = 0; i < count - num; i++){
+      stringa += "**";
+    }
+  console.log(stringa);
+    num--;
+  }
+}
+
+tree(5);
+
 /* ESERCIZIO 29
   Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
 */
+
+function isItPrime(numero){
+      for(var i = 2; i < numero; i++){
+        if(!(numero % i)) {
+          return false;
+        }
+      }
+      return true;
+}
+
+console.log("primo: " + isItPrime(5));
 
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
 
