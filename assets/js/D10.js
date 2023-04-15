@@ -511,7 +511,7 @@ function halfTree(num){
     num--;
   }
 }
-
+console.log("halftree");
 halfTree(4);
 
 /* ESERCIZIO 28
@@ -540,7 +540,7 @@ function tree(num){
     num--;
   }
 }
-
+console.log("tree");
 tree(5);
 
 /* ESERCIZIO 29
@@ -556,7 +556,8 @@ function isItPrime(numero){
       return true;
 }
 
-console.log("primo: " + isItPrime(5));
+var numero = 7;
+console.log(`numero primo ${numero}: ` + isItPrime(numero));
 
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
 
